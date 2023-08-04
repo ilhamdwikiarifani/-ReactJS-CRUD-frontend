@@ -24,8 +24,18 @@ const Home = () => {
   };
 
   const { data, error } = useSWR(`/quote`, fetchData);
-  if (!data) return <div>Loading...</div>;
-  if (error) return <div>Error...</div>;
+  if (!data)
+    return (
+      <div className="w-full h-screen flex justify-center items-center text-white bg-zinc-950 text-2xl">
+        Loading😮‍💨...
+      </div>
+    );
+  if (error)
+    return (
+      <div className="w-full h-screen flex justify-center items-center text-white bg-zinc-950 text-2xl">
+        Failed Load Data🤯...
+      </div>
+    );
 
   const AddData = async (e) => {
     e.preventDefault();
